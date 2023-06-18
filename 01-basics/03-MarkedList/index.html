@@ -12,15 +12,12 @@
   </head>
   <body>
     <div id="app" style="margin-top: 2rem">
-      <div class="container">
+      <div class="container" v-if="emails">
         <div class="form-group">
-          <input type="search" />
+          <input type="search" v-model="search" />
         </div>
         <ul>
-          <li>Email</li>
-          <li class="marked">Email</li>
-          <li>...</li>
-          <li>Email</li>
+          <li v-for="email in emailsMarked" :class="{marked: email.isMarked }">{{ email.text }}</li>
         </ul>
       </div>
     </div>
